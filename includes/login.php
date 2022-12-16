@@ -16,7 +16,7 @@ include 'connect.php';
     // });
  //look up uName by seeing if $result is empty, $result comes from the functions.php
    $result = lookupUser($_POST['naam']);
-   if(empty(!$result)){
+   if(!empty($result)){
      doLogin($_POST);
      echo "logged in";
     // var_dump($result);

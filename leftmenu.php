@@ -30,7 +30,7 @@
     }?>
     <?php
     if($_SESSION){
-    echo '<br /><br /><a href="logout.php">Logout</a>';  
+    echo '<a href="logout.php">Logout</a>';  
     }?>
     </div>
 </div>

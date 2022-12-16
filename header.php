@@ -1,9 +1,9 @@
-<?php
+ <?php
 include 'includes/functions.php';
-if(session_status() !== PHP_SESSION_ACTIVE) session_start();
+session_start();
 
-// var_dump(session_status());
-// var_dump(session_id());
+var_dump(session_status());
+var_dump(session_id());
 var_dump($_SESSION);
 ?>
 
@@ -16,18 +16,18 @@ var_dump($_SESSION);
   <body>
     
   <header>
-    <a href="index.php"><h1>Superior Waste</h1></a>
-      <div class="formdiv">
-        <form class="logform" action="includes/login.php" method="post">
+    <p>Remas Superior Waste recycling</p>
 
-          <label for="naam">Username</label><br>
-              <input type="text" name="naam"><br>
+    <div> 
+      Versie: 1:00 
+      <?php
+      if($_SESSION){
+      echo 'Ingelogt als ' . 
+      $_SESSION['naam'] .
+      '<img src="" alt="">';
 
-          <label for="wachtwoord">wachtwoord</label><br>
-              <input type="wachtwoord" name="wachtwoord"><br>
-
-          <input type="submit" name="login" value="Login">
-
-        </form>
+      }
+      ?>
       </div>
+
   </header>

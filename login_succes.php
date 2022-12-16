@@ -1,14 +1,23 @@
+
 <?php
 include 'header.php';
 ?>
+<head><title>Superior Waste</title></head>
 
-<?php  
+  <div class="mainpage">
+    <?php include 'leftmenu.php';?>
+  
+
+
+  <div class="page">
+
+  <?php  
  //login_success.php   
- if(isset($_SESSION["uName"]))  
+ if(isset($_SESSION["naam"]))  
  
  {  
     ?>
-      <h3>Login Success, Welcome - <?php echo $_SESSION["uName"]?></h3> 
+      <h3><?php echo $_SESSION["naam"]?>ata</h3> 
       
     <?php
   
@@ -24,12 +33,15 @@ include 'header.php';
 
 
 
- var_dump(session_status());
- var_dump(session_id());
- var_dump($_SESSION);
+
  ?>
 
+  </div>
 
-<?php
-include 'footer.php';
+
+  </div>
+
+
+  <?php
+include_once 'footer.php';
 ?>

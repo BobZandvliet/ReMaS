@@ -1,3 +1,9 @@
+:root{
+  --green: #DFF0D8;
+  --greener: #5CB85C;
+}
+
+
 *{
   margin: 0;
   padding: 0;
@@ -11,92 +17,96 @@ body{
   background-color: white;
 }
 
+@media only screen and (max-width: 750px){
+  .page{
+    margin-left: 80px;
+    /* grid-column: 1/2; */
+  }
+}
+
+.page{
+  margin-top: 1em;
+  
+
+}
+
 header{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  background-color: #ccffd9
-  ;
-}
-.navbar{
-  display: flex;
-  flex-direction: column;
-  grid-column: 3 / 3;
-  /* background-color: blue; */
-  width: auto;
+  grid-template-columns: 1fr 1fr;
+  background-color: var(--green);
   height: 50px;
-  justify-content: center;
+  
 }
-
-
-li{
-  background-color: lightgrey;
-  display: inline-flex;
-  width: auto;
-  padding: 5px;
-  border: 1.5px solid black;
-  border-radius: 5px;
+header p{
+  display: flex;
   align-self: center;
+  justify-content: flex-start;
+  margin-left: 15px;
+  
 }
-li:hover{
-  transform: scale(1.1);
-  transition: 0.3s;
-
-}
-
-.logLI{
-  margin-right: 0px;
-}
-h1{
-  margin: 15px 20px;
-}
-form{
-  margin: 10px;
-  background-color: lightgrey;
-  border: 2px solid black;
-  width: 200px;
-  padding: 10px;
-  border-radius: 10px;
-
+header div{
+  display: flex;
+  align-self: center;
+  justify-content: flex-end;
+  margin-right: 25px;
 }
 
-input{
-  margin-bottom: 5px;
+
+.welkom{
+  margin: 2em 0em;
+  line-height: 2em;
 }
+
+
+
+
 
 .logform{
   display: flex;
-  flex-direction: row;
-  gap: 2px;
-  background-color: white;
-  border: 0px solid black;
-  width: auto;
-  padding: 10px 2px 4px 10px;
-  border-radius: 10px;
+  flex-direction: column;
+  margin-top: 1em;
+  
 }
-.formdiv{
-  grid-column: 3 / 4;
+.logform input{
+  margin-bottom: 5px;
+  width: 250px;
+  height: 37px;
+  border-radius: 5px;
+  border: 2px solid lightgrey;
+  padding: 0px 8px;
 }
+#but{
+  width: 125px;
+  border: none;
+  background-color: var(--greener);
+  font-weight: 500;
+  font-size: 1em;
+}
+
 
 .mainpage{
   width: 100%;
   height: 95vh;
-  background-color: grey;
+  background-color: white;
   display: grid;
-  grid-template-columns: 30% 70%;
+  grid-template-columns: 25% 80%;
 }
 
 .leftmenu{
 grid-column: 1/2;
 display: flex;
 flex-direction: column;
+max-width: 300px;
+min-width: 200px;
 
 }
 
 .leftmenu img{
-  max-width: 300px;
-  max-height: 300px;
-  padding-left: 10%;
+  max-width: 170px;
+  max-height: 170px;
+  align-self: center;
   padding-top: 10px;
+  
 }
 
 .menulinks {
@@ -121,6 +131,6 @@ flex-direction: column;
   color: black;
 }
 .menulinks a:hover{
-  color: green;
+  color: var(--greener);
 
 }

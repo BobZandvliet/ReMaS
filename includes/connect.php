@@ -1,9 +1,9 @@
 <?php
 try {
 $servername = "localhost";
-$dbname = "green";
+$dbname = "Remas";
 $username = "root";
-$password = "root";
+$password = "123Dpower!";
 //login to database
   $db = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8" ,$username,$password);
   //vardump to see if the connection works
