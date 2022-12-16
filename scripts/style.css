@@ -47,10 +47,12 @@ header p{
 header div{
   display: flex;
   align-self: center;
-  justify-content: flex-end;
-  margin-right: 25px;
-}
+  justify-content: end;
 
+}
+header div a img{
+  margin-left: 4px;
+}
 
 .welkom{
   margin: 2em 0em;
@@ -59,7 +61,11 @@ header div{
 
 
 
-
+.sub{
+  margin-left: 20px!important;
+  width: 200px;
+  margin-bottom: 15px;
+}
 
 .logform{
   display: flex;

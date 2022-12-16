@@ -19,12 +19,12 @@ var_dump($_SESSION);
     <p>Remas Superior Waste recycling</p>
 
     <div> 
-      Versie: 1:00 
+      Versie: 1.00 
       <?php
       if($_SESSION){
       echo 'Ingelogt als ' . 
-      $_SESSION['naam'] .
-      '<img src="" alt="">';
+      $_SESSION['naam'];
+      echo '<a href="logout.php"><img src="content/images/button.png" alt=""></a>';
 
       }
       ?>
