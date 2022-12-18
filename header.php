@@ -16,7 +16,7 @@ var_dump($_SESSION);
   <body>
     
   <header>
-    <p>Remas Superior Waste recycling</p>
+    <p><a href="/index.php">Remas Superior Waste recycling</a></p>
 
     <div> 
       Versie: 1.00 

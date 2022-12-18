@@ -2,41 +2,42 @@
 include 'header.php';
 ?>
 <head><title>Register</title></head>
-<h1>Register</h1>
-<div class="formdiv">
 
-  <form class="regform" action="includes\insert.php" method="POST">
-    <label for="fName">Your First Name</label><br>
-    <input type="text" name="fName" required><br>
-
-    <label for="lName">Your Last Name</label><br>
-    <input type="text" name="lName" required><br>
-
-    <label for="uName">Your User Name</label><br>
-    <input type="text" name="uName" required><br>
-
-    <label for="password">Choose a Password</label><br>
-    <input type="password" name="Password" required><br>
-
-    <label for="eMail">E-mail</label><br>
-    <input type="text" name="eMail" required><br>
-
-    <label for="town">Phone number</label><br>
-    <input type="text" name="Phone" required><br>
-
-    <label for="town">Town / City</label><br>
-    <input type="text" name="City" required><br>
-
-    <label for="zCode">ZIP Code</label><br>
-    <input type="text" name="zCode" required><br>
+<div class="mainpage">
+    <?php include 'blocks/leftmenu.php';?>
 
 
-    <input type="submit" name="submit" value="Submit">
+    <div class="page">
 
+    <?php
 
+if(isset($_SESSION["naam"])){
+echo '
 
-  </form>
+  <form class="logform" action="includes/insert.php" method="POST">
 
+                <select name="rolID" class="rolselect">
+                  <option value="1">Algemene Medewerker</option>
+                  <option value="2">Medewerker Inname</option>
+                  <option value="3">Medewerker Verwerking</option>
+                  <option value="4">Medewerker Uitgifte</option>
+                  <option value="5">Applicatie-beheerder</option>
+                  <option value="6">Administrator</option>
+                </select>
+                <!-- <input type="text" name="rolID" placeholder="rolID" required><br> -->
+                <input type="text" name="naam" placeholder="Gebruikersnaam" required><br>
+            
+                <input type="password" name="wachtwoord" placeholder="Wachtwoord" required><br>
+
+                <input type="text" name="emailadres" placeholder="emailadres" required><br>
+
+                <input id="but" type="submit" name="submit" value="Submit">
+
+          </form>';
+         
+        }?> 
+      
+    </div>
 </div>
 
 <?php

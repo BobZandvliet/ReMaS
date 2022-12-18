@@ -9,7 +9,8 @@ include 'header.php';
 
     <div class="page">
     <?php
-
+    
+    
     if(!isset($_SESSION["naam"])){
     echo '
 
@@ -30,14 +31,23 @@ include 'header.php';
               <input type="text" name="naam" placeholder="Gebruikersnaam" required><br>
 
           
-              <input type="wachtwoord" name="wachtwoord" placeholder="Wachtwoord" required><br>
+              <input type="password" name="wachtwoord" placeholder="Wachtwoord" required><br>
 
           <input id="but" type="submit" name="login" value="Inloggen">
 
         </form>
       
       ';
-      }?>
+      }
+      
+      if(isset($_GET['errorpw'])){
+        echo '<div class="errorbanner">Wachtwoord of gebruikersnaam verkeerd</div>';
+        
+      }
+      
+
+      
+      ?>
 
       <?php  
         //login_success.php   

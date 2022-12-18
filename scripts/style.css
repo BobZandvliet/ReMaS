@@ -9,7 +9,8 @@
   padding: 0;
   list-style: none;
   box-sizing: border-box;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: 'Arial Rounded MT Bold';
+  font-size: 1em;
 }
 
 
@@ -43,7 +44,13 @@ header p{
   justify-content: flex-start;
   margin-left: 15px;
   
+  
 }
+header p a{
+  text-decoration: none;
+  color: black;
+}
+
 header div{
   display: flex;
   align-self: center;
@@ -139,4 +146,13 @@ min-width: 200px;
 .menulinks a:hover{
   color: var(--greener);
 
+}
+
+.rolselect{
+  margin-bottom: 1.4em;
+  width: 250px;
+  height: 37px;
+  border-radius: 5px;
+  border: 2px solid lightgrey;
+  padding: 0px 8px;
 }
