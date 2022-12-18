@@ -72,7 +72,7 @@ include 'header.php';
                 <h3>Apparaten</h3>
                 <div>
                 <h3>naam</h3>
-                <h3></h3>
+                <h3>Gewicht</h3>
                 </div>
                 <div id="extraveld"> </div>
         

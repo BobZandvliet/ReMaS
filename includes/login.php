@@ -10,7 +10,11 @@
 // doLogin($_POST);
   
 
-//  check if post is not empty
+
+
+
+
+ //check if post is not empty
  if(!empty($_POST)){
     //converts all text to normal html text for safety
     array_walk_recursive($_POST, function($key, &$value){
@@ -20,7 +24,6 @@
    $result = lookupUser($_POST['naam']);
    if(!empty($result)){
      doLogin($_POST);
-     echo "logged in";
     // var_dump($result);
  
    } else {

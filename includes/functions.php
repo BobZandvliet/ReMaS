@@ -26,17 +26,29 @@
                 $connect = $db;  
                 $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
                    
+
                     
+
+
+
+
+
+                      
                       if(isset($_POST["naam"]) && isset($_POST["wachtwoord"])){  
-                             
+                               
+
+
                             $query = "SELECT * FROM medewerkers WHERE naam = :naam AND wachtwoord = :wachtwoord";  
                             $statement = $connect->prepare($query);  
-                            $statement->execute(array('naam' => $_POST["naam"], 'wachtwoord' => $_POST["wachtwoord"]));
 
+                            
+                            $statement->execute(array('naam' => $_POST["naam"], 'wachtwoord' => $_POST["wachtwoord"]));
+                           
                             $count = $statement->rowCount();  
+
                             if($count > 0){  
 
-
+                                
                                 $_SESSION["naam"] = $_POST["naam"];  
                                 // $_SESSION["wachtwoord"] = $_POST["wachtwoord"];
 
@@ -51,10 +63,32 @@
                 catch(PDOException $error) {  
                   $message = $error->getMessage();  
                   echo "cannot not connect to DB";
+                  
             }  
           }
 
+          // function pwcheck()
+          // {
 
+          //   include 'connect.php';
+          //     if(isset($_POST['wachtwoord'])){
+          //       $stmt = $db->query("SELECT * FROM medewerkers WHERE naam = :naam");
+          //       $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+          //       $stmt->execute();
+          //       foreach($stmt as $row => $pw){
+          //         if($pw['naam' == $_POST['naam']]){
+          //           $hashedpw = $pw['wachtwoord'];
+          //           if(password_verify($_POST['wachtwoord'], $hashedpw)){
+          //             return true;
+          //           }else {
+          //             echo 'gg';
+          //           }
+          //         } echo 'g';
+
+
+          //     }
+          //   }echo 'nopw';
+          // }
 
 
           function addinfo(){

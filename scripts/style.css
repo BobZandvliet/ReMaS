@@ -156,3 +156,14 @@ min-width: 200px;
   border: 2px solid lightgrey;
   padding: 0px 8px;
 }
+
+
+.greenbutton{
+  margin-bottom: 1.4em;
+  border-radius: 5px;
+  border: 2px solid lightgrey;
+  padding: 7px 30px;
+  background-color: var(--greener);
+  color: white;
+  text-decoration: none;
+}
