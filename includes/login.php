@@ -24,6 +24,7 @@
    $result = lookupUser($_POST['naam']);
    if(!empty($result)){
      doLogin($_POST);
+     session_start();
     // var_dump($result);
  
    } else {

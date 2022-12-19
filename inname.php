@@ -26,14 +26,14 @@ include 'header.php';
                 apparaat.type = "text";
                 apparaat.name = "apparaat" + i;
                 apparaat.placeholder = "Product";
-                apparaat.style.cssText ="margin-bottom:-1px;width: 250px;height: 37px;border: 2px solid lightgray;padding: 0px 8px;";
+                //apparaat.style.cssText ="";
                 extraveld.appendChild(apparaat);
 
                 let apparaat2 = document.createElement("input");
                 apparaat2.type = "text";
                 apparaat2.name = "gewicht" + i;
                 apparaat2.placeholder = "Gewicht";
-                apparaat2.style.cssText ="margin-bottom:-1px;width: 75px;height: 37px;border: 2px solid lightgray;padding: 0px 8px;";
+                //apparaat2.style.cssText ="";
                 extraveld.appendChild(apparaat2);
                 
 
@@ -72,7 +72,7 @@ include 'header.php';
                 <h3>Apparaten</h3>
                 <div>
                 <h3>naam</h3>
-                <h3></h3>
+                <h3>Gewicht</h3>
                 </div>
                 <div id="extraveld"> </div>
         

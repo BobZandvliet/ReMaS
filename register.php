@@ -11,8 +11,8 @@ include 'header.php';
 
     <?php
 
-if(isset($_SESSION["naam"])){
-echo '
+if($_SESSION['rolID'] == 6){
+?>
 
   <form class="logform" action="includes/insert.php" method="POST">
 
@@ -33,8 +33,8 @@ echo '
 
                 <input id="but" type="submit" name="submit" value="Submit">
 
-          </form>';
-         
+          </form>
+         <?php
         }?> 
       
     </div>

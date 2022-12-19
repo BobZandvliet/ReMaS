@@ -58,7 +58,7 @@ header div{
 
 }
 header div a img{
-  margin-left: 4px;
+  margin: 0px 4px;
 }
 
 .welkom{
@@ -167,3 +167,44 @@ min-width: 200px;
   color: white;
   text-decoration: none;
 }
+
+#extraveld input{
+  margin-bottom:-1px;
+  width: 250px;
+  height: 37px;
+  border: 2px solid lightgray;
+  padding: 0px 8px;
+}
+/* .uwrap{
+  display: flex;
+  flex-direction: row;
+  gap: 1px;
+}
+.uwrap{
+  border: 2px solid black;
+  padding: 5px;
+  margin-top: -2px;
+  width: fit-content;
+  min-width: 500px;
+ 
+
+} */
+/* .idrow{
+  position: fixed;
+  margin-left: 0px;
+}
+.naamrow{
+  position: fixed;
+  margin-left: 30px;
+}
+.rolrow{
+  position: fixed;
+  margin-left: 60px;
+}
+.emailrow{
+  position: fixed;
+  right: 400px;
+  
+} */
+table, th, td {
+  border: 1px solid black;}

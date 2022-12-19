@@ -27,37 +27,38 @@
                 $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
                    
 
-                    
-
-
-
-
-
-                      
                       if(isset($_POST["naam"]) && isset($_POST["wachtwoord"])){  
                                
 
 
-                            $query = "SELECT * FROM medewerkers WHERE naam = :naam AND wachtwoord = :wachtwoord";  
+                            $query = "SELECT * FROM medewerkers WHERE naam = :naam";  
                             $statement = $connect->prepare($query);  
 
                             
-                            $statement->execute(array('naam' => $_POST["naam"], 'wachtwoord' => $_POST["wachtwoord"]));
+                            $statement->execute(['naam' => htmlspecialchars($_POST["naam"], ENT_QUOTES, 'UTF-8')]);
                            
                             $count = $statement->rowCount();  
 
                             if($count > 0){  
+                              $data = $statement->fetch(PDO::FETCH_ASSOC);
+                                if(password_verify($_POST["wachtwoord"], $data["wachtwoord"])){
 
-                                
                                 $_SESSION["naam"] = $_POST["naam"];  
-                                // $_SESSION["wachtwoord"] = $_POST["wachtwoord"];
+                                $_SESSION['ID'] = $data['ID'];
+                                $_SESSION["rolID"] = $data['rolID'];
+                                $_SESSION["emailadres"] = $data['emailadres'];
+                                
 
 
-
-                                addinfo();
-                                header("location:../index.php");  }  else {  
+                                }
+                                else{
+                                  header("location:../index.php?errorpw");
+                                }
+                                header("location:../index.php");  }  
+                                else {  
                               header("location:../index.php?errorpw");
-                            }  } else {  
+                            }  } 
+                            else {  
                         header("location:../index.php?errorpw");}  
                 }
                 catch(PDOException $error) {  
@@ -67,51 +68,6 @@
             }  
           }
 
-          // function pwcheck()
-          // {
-
-          //   include 'connect.php';
-          //     if(isset($_POST['wachtwoord'])){
-          //       $stmt = $db->query("SELECT * FROM medewerkers WHERE naam = :naam");
-          //       $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-          //       $stmt->execute();
-          //       foreach($stmt as $row => $pw){
-          //         if($pw['naam' == $_POST['naam']]){
-          //           $hashedpw = $pw['wachtwoord'];
-          //           if(password_verify($_POST['wachtwoord'], $hashedpw)){
-          //             return true;
-          //           }else {
-          //             echo 'gg';
-          //           }
-          //         } echo 'g';
-
-
-          //     }
-          //   }echo 'nopw';
-          // }
-
-
-          function addinfo(){
-            include 'connect.php';
-            if(isset($_SESSION['naam'])){
-              
-
-              $stmt = $db->query("SELECT * FROM medewerkers");
-              $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-              $stmt->execute();
-
-              foreach($stmt as $row => $row2){
-                  if($row2['naam'] == $_SESSION['naam']){
-                    $_SESSION['ID'] = $row2['ID'];
-                    $_SESSION["rolID"] = $row2['rolID'];
-                    $_SESSION["emailadres"] = $row2['emailadres'];
-
-
-                }
-               
-            }
-          }
-        }
 
 
           function getroles(){
@@ -148,12 +104,35 @@
             </pre>
             <?php
             $stmt->execute();
-            
+          
             foreach($stmt as $row){
-        
-              echo $row['naam'] , "</br>";
-            }
+                echo '<tr> <td>' .$row['ID'] . '</td>' . '<td>' .$row['naam'] . '<td>' .$row['rolID'] . '</td>' .  '<td>' .$row['emailadres'] . '</td> </tr>';
+                // echo '<tr> <td>' . $row["naam"] . '</td> </tr>';
+                //. '<td>' .$row['emailadres'] . '</td>'
 
+            //   echo "<div class='uwrap'>" ,
+            //  "<div class='idrow'>" , $row['ID'] , "</div>" ,
+            //  "<div class='naamrow'>" , $row['naam'] , "</div>" ,
+            //  "<div class='rolrow'>" , $row['rolID'] ,"</div>" ,
+            //  "<div class='emailrow'>" , $row['emailadres'] ,"</div>" ,
+            //   "</div>";
+
+
+
+
+
+
+              // var_dump($row);
+              // echo $row['naam'] , "</br>";
+              
+              // $row['ID'] = $userid;
+              // $row['naam'] = $usernaam;
+              // $row['rolID'] = $userrol;
+              // $row['emailadres'] = $usermail;
+
+              
+            }
+           
 
 
           }
