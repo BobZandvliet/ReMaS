@@ -28,11 +28,21 @@ include 'header.php';
     ?>
     </table>
     </div>
-    <input id="but" type="button" value="Print" onclick="printUsers()">
-    </div>
-
+</br>
+  
+    <input id="but" type="button" value="Print" onclick="printpage()">
+   
     
+    <form class="logform" action="includes/deleteuser.php" method="post">
 
+    <h1>Gebruiker verwijderen</h1>
+    <input type="text" name="ID" placeholder="Gebruikers ID" required><br>
+
+
+    <input id="but" type="submit" name="delete" value="DELETE">
+
+    </form>
+    </div>
     
 </div>
 

@@ -1,6 +1,6 @@
 
 <?php 
-echo '<br /><br /><a href="logout.php">Logout</a>';  
+// echo '<br /><br /><a href="logout.php">Logout</a>';  
 ?>
 
 </body>

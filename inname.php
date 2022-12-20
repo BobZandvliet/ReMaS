@@ -1,50 +1,7 @@
 <?php
 include 'header.php';
 ?>
-    <script type='text/javascript' >
-        function remove(){
-                while (extraveld.hasChildNodes()) {
-                extraveld.removeChild(extraveld.lastChild);
-                
-            }
-        }
-
-        function voegVeldenToe(){
-            // Generate a dynamic number of inputs
-            let nummer = document.getElementById("veld").value;
-            // Get the element where the inputs will be added to
-            let extraveld = document.getElementById("extraveld");
-         
-            // Remove every children it had before
-            while (extraveld.hasChildNodes()) {
-                extraveld.removeChild(extraveld.lastChild);
-                
-            }
-            for (i=0;i<nummer;i++){
-                // Create an <input> element, set its type and name attributes
-                let apparaat = document.createElement("input");
-                apparaat.type = "text";
-                apparaat.name = "apparaat" + i;
-                apparaat.placeholder = "Product";
-                //apparaat.style.cssText ="";
-                extraveld.appendChild(apparaat);
-
-                let apparaat2 = document.createElement("input");
-                apparaat2.type = "text";
-                apparaat2.name = "gewicht" + i;
-                apparaat2.placeholder = "Gewicht";
-                //apparaat2.style.cssText ="";
-                extraveld.appendChild(apparaat2);
-                
-
-                // Append a line break 
-                extraveld.appendChild(document.createElement("br"));
-            }
-        }    
-
-
-
-    </script>
+    <script src="/scripts/js.js"></script>
 <head><title>Welkom bij ReMaS</title></head>
 
   <div class="mainpage">
@@ -61,7 +18,7 @@ include 'header.php';
                 <section class="boven">
                   <option value="<?= $_SESSION['naam']?>"><?= $_SESSION['naam']?></option>
                 </select>
-                <input type="text" class="rolselect" id="tijd" name="tijd">
+                <input type="text" class="rolselect" id="tijd" name="tijd" value="<?php echo date('d-m-Y h:i', time());?>">
                 </section>
                 <section>
                 <input type="text" class="rolselect" id="veld" name="veld" placeholder="Aantal producten">
@@ -79,8 +36,11 @@ include 'header.php';
 
                 </section>
 
+                <select name="rolID" class="rolselect">
+                <?php getapparaten()?>
+                </select>
     </form>
-
+    
 
 
   </div>

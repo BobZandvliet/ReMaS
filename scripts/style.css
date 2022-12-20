@@ -94,6 +94,8 @@ header div a img{
   background-color: var(--greener);
   font-weight: 500;
   font-size: 1em;
+  padding: 8px;
+  border-radius: 4px;
 }
 
 

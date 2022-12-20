@@ -1,6 +1,6 @@
 <?php
 
-        //function to check if user name is already taken, if username exists it places it in $result.
+        
         function lookupUser($userData){
             include 'connect.php';
           
@@ -52,14 +52,14 @@
 
                                 }
                                 else{
-                                  header("location:../index.php?errorpw");
+                                  header("location: ../index.php?errorpw");
                                 }
-                                header("location:../index.php");  }  
+                                header("location: ../index.php");  }  
                                 else {  
-                              header("location:../index.php?errorpw");
+                              header("location: ../index.php?errorpw");
                             }  } 
                             else {  
-                        header("location:../index.php?errorpw");}  
+                        header("location: ../index.php?errorpw");}  
                 }
                 catch(PDOException $error) {  
                   $message = $error->getMessage();  
@@ -76,12 +76,7 @@
 
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
             
-            ?>
-            <pre><?php
-            // var_dump($results);
-            ?>
-            </pre>
-            <?php
+
             $stmt->execute();
             
             foreach($stmt as $row){
@@ -96,13 +91,13 @@
             include 'connect.php';
                 
                 
-                // prepare sql and bind parameters
+
                 $stmt = $db->prepare("INSERT INTO medewerkers(rolID, naam, wachtwoord, emailadres)      
                 VALUES(:rolID, :naam, :wachtwoord, :emailadres)");
 
                 $rolID = $_POST["rolID"];
                 $naam = $_POST["naam"];
-                // $wachtwoord = $_POST["wachtwoord"];
+
                 $wachtwoord = password_hash($_POST["wachtwoord"], PASSWORD_DEFAULT);
 
                 $emailadres = $_POST["emailadres"];
@@ -115,13 +110,13 @@
                 $stmt->bindParam(":emailadres" , $emailadres);
 
             
-                // insert into row
+         
                
 
 
                 $stmt->execute();
     
-                echo "success ";
+                header("Location: ../register.php");
             
             }
 
@@ -131,12 +126,7 @@
   
               $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
               
-              ?>
-              <pre><?php
-              // var_dump($results);
-              ?>
-              </pre>
-              <?php
+
               $stmt->execute();
               
               foreach($stmt as $row){
@@ -162,7 +152,7 @@
                   if($row['rolID'] == 6){
                     echo '<td>' . "Administrator" . '</td>' ;
                   }
-                  // echo '<td>' . $row['rolID'] . '</td>' ;
+                 
                   echo '<td>' .$row['emailadres'] . '</td> </tr>';
         
               }
@@ -176,12 +166,6 @@
   
               $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
               
-              ?>
-              <pre><?php
-              // var_dump($results);
-              ?>
-              </pre>
-              <?php
               $stmt->execute();
               
               foreach($stmt as $row){
@@ -203,7 +187,7 @@
               include 'connect.php';
                   
                   
-                  // prepare sql and bind parameters
+                 
                   $stmt = $db->prepare("INSERT INTO onderdelen(naam, omschijving, voorraadkg, prijsperkg)      
                   VALUES(:naam, :omschijving, :voorraadkg, :prijsperkg)");
   
@@ -226,11 +210,99 @@
               
               }
   
+              function getapparaten(){
+                include 'connect.php';
+                $stmt = $db->query("SELECT * FROM apparaten");
+    
+                $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+ 
+                $stmt->execute();
+                
+                foreach($stmt as $row){
+    
+    
+                    
+                    echo '<tr> <td>' .$row['naam'] . '</td>';
+                    echo '<td>' . $row['omschijving'] . '</td>' ;
+                    echo '<td>' . $row['vergoeding'] . '</td>' ;
+                    echo '<td>' .$row['gewichtgram'] . '</td> </tr>';
+                   
+          
+                }
+              
+              }
+    
+
+              function addapparaat(){
+                include 'connect.php';
+                    
+                    
+                    
+                    $stmt = $db->prepare("INSERT INTO apparaten(naam, omschijving, vergoeding, gewichtgram)      
+                    VALUES(:naam, :omschijving, :vergoeding, :gewichtgram)");
+    
+                   
+                    $naam = $_POST["naam"];
+                    $omschijving = $_POST["omschijving"];
+                    $vergoeding = $_POST["vergoeding"];
+                    $gewichtgram = $_POST["gewichtgram"];
+    
+    
+                    $stmt->bindParam(":naam" , $naam);
+                    $stmt->bindParam(":omschijving" , $omschijving);
+                    $stmt->bindParam(":vergoeding" , $vergoeding);
+                    $stmt->bindParam(":gewichtgram" , $gewichtgram);
+    
+    
+                    $stmt->execute();
+        
+                    header("Location: ../apparaten.php");
+                
+                }
 
 
-
-
-
+                function deleteuser(){
+                  include 'connect.php';
+                      
+                      
+      
+                      $stmt = $db->prepare("DELETE FROM medewerkers WHERE ID = :ID");
+      
+                      $ID = $_POST["ID"];
+                      $stmt->bindParam(":ID" , $ID);
+         
+                      $stmt->execute();
+          
+                      
+                  }
+                  function deleteappa(){
+                    include 'connect.php';
+                        
+                        
+        
+                        $stmt = $db->prepare("DELETE FROM apparaten WHERE naam = :naam");
+        
+                        $naam = $_POST["naam"];
+                        $stmt->bindParam(":naam" , $naam);
+           
+                        $stmt->execute();
+            
+                        
+                    }
+                    function deleteonder(){
+                      include 'connect.php';
+                          
+                          
+          
+                          $stmt = $db->prepare("DELETE FROM onderdelen WHERE naam = :naam");
+          
+                          $naam = $_POST["naam"];
+                          $stmt->bindParam(":naam" , $naam);
+             
+                          $stmt->execute();
+              
+                          
+                      }
 
 
 

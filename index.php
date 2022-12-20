@@ -12,7 +12,7 @@ include 'header.php';
     
     
     if(!isset($_SESSION["naam"])){
-    echo '
+      ?>
 
     <div class="welkom">
       <p> 
@@ -36,8 +36,8 @@ include 'header.php';
           <input id="but" type="submit" name="login" value="Inloggen">
 
         </form>
+      <?php
       
-      ';
       }
       
       if(isset($_GET['errorpw'])){
