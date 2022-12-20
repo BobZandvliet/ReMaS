@@ -1,0 +1,189 @@
+:root{
+  --green: #DFF0D8;
+  --greener: #5CB85C;
+}
+
+
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+  font-family: 'Arial Rounded MT Bold';
+  font-size: 1em;
+}
+
+
+body{
+  background-color: white;
+}
+
+@media only screen and (max-width: 750px){
+  .page{
+    margin-left: 80px;
+    /* grid-column: 1/2; */
+  }
+}
+
+.page{
+  margin-top: 1em;
+  
+
+}
+
+header{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: var(--green);
+  height: 50px;
+  
+}
+header p{
+  display: flex;
+  align-self: center;
+  justify-content: flex-start;
+  margin-left: 15px;
+  
+  
+}
+header p a{
+  text-decoration: none;
+  color: black;
+}
+
+header div{
+  display: flex;
+  align-self: center;
+  justify-content: end;
+
+}
+header div a img{
+  margin: 0px 4px;
+}
+
+.welkom{
+  margin: 2em 0em;
+  line-height: 2em;
+}
+
+
+
+.sub{
+  margin-left: 20px!important;
+  width: 200px;
+  margin-bottom: 15px;
+}
+
+.logform{
+  display: flex;
+  flex-direction: column;
+  margin-top: 1em;
+  
+}
+.logform input{
+  margin-bottom: 5px;
+  width: 250px;
+  height: 37px;
+  border-radius: 5px;
+  border: 2px solid lightgrey;
+  padding: 0px 8px;
+}
+#but{
+  width: 125px;
+  border: none;
+  background-color: var(--greener);
+  font-weight: 500;
+  font-size: 1em;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+
+.mainpage{
+  width: 100%;
+  height: 95vh;
+  background-color: white;
+  display: grid;
+  grid-template-columns: 25% 80%;
+}
+
+.leftmenu{
+grid-column: 1/2;
+display: flex;
+flex-direction: column;
+max-width: 300px;
+min-width: 200px;
+
+}
+
+.leftmenu img{
+  max-width: 170px;
+  max-height: 170px;
+  align-self: center;
+  padding-top: 10px;
+  
+}
+
+.menulinks {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  padding: 40px;
+  /* background-color:red ; */
+  width: 75%;
+ 
+}
+
+.menulinks a{
+  padding: 15px;
+  text-decoration: none;
+  color: black;
+
+}
+
+.menulinks a :visited{
+  text-decoration: none;
+  color: black;
+}
+.menulinks a:hover{
+  color: var(--greener);
+
+}
+
+.rolselect{
+  margin-bottom: 1.4em;
+  width: 250px;
+  height: 37px;
+  border-radius: 5px;
+  border: 2px solid lightgrey;
+  padding: 0px 8px;
+}
+
+
+.greenbutton{
+  margin-bottom: 1.4em;
+  border-radius: 5px;
+  border: 2px solid lightgrey;
+  padding: 7px 30px;
+  background-color: var(--greener);
+  color: white;
+  text-decoration: none;
+}
+
+#extraveld input{
+  margin-bottom:-1px;
+  width: 250px;
+  height: 37px;
+  border: 2px solid lightgray;
+  padding: 0px 8px;
+}
+
+table, th, td {
+  border: 1px solid black;
+  /* background-color: #5CB85C; */
+  margin-right: 200px;
+  
+}
+td{
+  width: 210px;
+}
