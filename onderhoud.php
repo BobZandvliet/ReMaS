@@ -10,8 +10,8 @@ include 'header.php';
     <div class="page">
     <h3> Ingelogd als <?= $_SESSION["naam"]?></h3> 
 
-    <div><a href="/apparaten.php">Apparaten</a></div>
-    <div ><a href="/onderdelen.php">Onderdelen</a></div>
+    <div><a href="apparaten.php">Apparaten</a></div>
+    <div ><a href="onderdelen.php">Onderdelen</a></div>
 
     
 

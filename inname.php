@@ -1,7 +1,7 @@
 <?php
 include 'header.php';
 ?>
-    <script src="/scripts/js.js"></script>
+    <script src="scripts/js.js"></script>
 <head><title>Welkom bij ReMaS</title></head>
 
   <div class="mainpage">
@@ -27,17 +27,16 @@ include 'header.php';
                 </section>
                 <section>
                 <h3>Apparaten</h3>
-                <div>
                 <h3>naam</h3>
                 <h3>Gewicht</h3>
-                </div>
+                
                 <div id="extraveld"> </div>
         
 
                 </section>
 
                 <select name="rolID" class="rolselect">
-                <?php getapparaten()?>
+                <?php getapparatenlist()?>
                 </select>
     </form>
     

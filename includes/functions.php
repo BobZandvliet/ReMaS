@@ -231,7 +231,24 @@
                 }
               
               }
+              function getapparatenlist(){
+                include 'connect.php';
+                $stmt = $db->query("SELECT * FROM apparaten");
     
+                $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+ 
+                $stmt->execute();
+                
+                foreach($stmt as $row){
+    
+                    
+                    echo '<option value="' . $row["ID"]. '" >' .$row['naam'] . '</option>';
+
+                   
+          
+                }
+              
+              }
 
               function addapparaat(){
                 include 'connect.php';
