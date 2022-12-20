@@ -106,7 +106,10 @@
             $stmt->execute();
           
             foreach($stmt as $row){
-                echo '<tr> <td>' .$row['ID'] . '</td>' . '<td>' .$row['naam'] . '<td>' .$row['rolID'] . '</td>' .  '<td>' .$row['emailadres'] . '</td> </tr>';
+                echo '<tr> <td>' .$row['ID'] . '</td>' .
+                 '<td>' . $row['naam'] . '</td>' .
+                 '<td>' . $row['rolID'] . '</td>' .
+                   '<td>' .$row['emailadres'] . '</td> </tr>';
                 // echo '<tr> <td>' . $row["naam"] . '</td> </tr>';
                 //. '<td>' .$row['emailadres'] . '</td>'
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 19, 2022 at 12:24 AM
+-- Generation Time: Dec 20, 2022 at 10:18 AM
 -- Server version: 10.6.11-MariaDB-0ubuntu0.22.10.1
 -- PHP Version: 8.1.7-1ubuntu3.1
 
@@ -90,22 +90,13 @@ CREATE TABLE `medewerkers` (
 --
 
 INSERT INTO `medewerkers` (`ID`, `rolID`, `naam`, `wachtwoord`, `emailadres`) VALUES
-(1, 1, 'testacc1', 'test', 'test@test'),
-(2, 2, 'testacc2', 'test', 'test2@test'),
-(3, 3, 'testacc3', 'test', 'test3@test'),
-(4, 4, 'testacc4', 'test', 'test4@test'),
-(5, 5, 'testacc5', 'test', 'test5@test'),
-(6, 6, 'testacc6', 'test', 'test6@test'),
-(7, 2, 'test', 'test', 'test'),
-(8, 1, 'testt', 'ddd', 'test'),
-(11, 1, 'test1', 'ff', 'test'),
-(12, 1, 'tee', 'tee', 'tee'),
-(13, 1, 'ff', 'ff', 'ff'),
-(14, 1, 'sd', '$2y$10$0NFRmsRcWFKVj6KvVJf3oeuKJsP5d0qP6/TNy8IwlOCte6Lxz/zwG', 'asd'),
-(15, 1, 'sddd', '$2y$10$0uX0WI2KylXRfJr3eQDS/.76vkGzBO8KRTpCsZKuQeLmZ7IhJLigm', 'asd'),
-(16, 1, 'test3', '$2y$10$unhHTNy09W1Wg84c.lS7A.oBvvOG.Q/1pu9LTXnIBeJ1ke2btHNwe', 'asd'),
-(17, 1, 't', '$2y$10$M2Ucmn78mXJV40z6.QnjY.Sgj0Ea01ynefCm7yhbguMhCZl0DJIZK', 't'),
-(18, 6, 'b', '$2y$10$yPwxhcW93oqVB/bU1XZOV./MeqDvum.umq1yeVN65tiDpiRopCsfq', 'b');
+(18, 6, 'b', '$2y$10$yPwxhcW93oqVB/bU1XZOV./MeqDvum.umq1yeVN65tiDpiRopCsfq', 'b'),
+(22, 1, 'test1', '$2y$10$PGAXdhPfJJU/s5hf4EXSwONTTZW3MBqHB1uUV/2rjVRBOIuTEDixC', 'test'),
+(23, 2, 'test2', '$2y$10$zAlCCnhJpP/BNLw4cHFcB.IzX/2KDVILXV7bKuRYUNfSyii30SJ4S', 'test'),
+(27, 3, 'test3', '$2y$10$OB7qn3k3QcmsAPI7X/SM5.HOI693UBnEuJEIMp06ZHx31tPxJ6Pu2', 'test'),
+(28, 4, 'test4', '$2y$10$Snc8S0R6bw1r99sdLLSAlOznhuAlVSRqxpQIK.lceQlBeN4J57beC', 'test'),
+(29, 5, 'test5', '$2y$10$pxu5s6CTWD2mpjBqQcIEd.SPdtUCxsn7QH5A3H4Ya2e.Ggn8BWRSq', 'test'),
+(30, 6, 'test6', '$2y$10$xXBwOaTccPw4vs.rfs4rG.vMntK8j6y4aOqRbOw8xs4rH.uJKgG22', 'test');
 
 -- --------------------------------------------------------
 
@@ -261,7 +252,7 @@ ALTER TABLE `innames`
 -- AUTO_INCREMENT for table `medewerkers`
 --
 ALTER TABLE `medewerkers`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `onderdeelapparaat`
