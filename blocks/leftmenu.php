@@ -40,15 +40,17 @@
         <?php 
         if($_SESSION['rolID'] == 5 ||  $_SESSION['rolID'] == 6){?>
         <a href='../onderhoud.php'>Onderhoud</a>
+        <div class="sub" ><a href="../apparaten.php">Apparaten</a></div>
+        <div class="sub" ><a href="../onderdelen.php">Onderdelen</a></div>
         <?php  
         }
         ?>
 
         <?php
         if($_SESSION['rolID'] == 6){?>
-        <div class="sub" ><a href="../inname.php">Bon afdrukken</a></div>
+        <!-- <div class="sub" ><a href="../">Bon afdrukken</a></div> -->
         <a href='../gebruikersbeheer.php'>Gebruikers beheer</a>
-        <div class="sub" ><a href="../register.php">Medewerkers</a></div>
+        <div class="sub" ><a href="../register.php">Medewerker-toevoegen</a></div>
        
       
         <?php  

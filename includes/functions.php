@@ -91,57 +91,6 @@
           }
 
 
-          function getusers(){
-            include 'connect.php';
-            $stmt = $db->query("SELECT * FROM medewerkers");
-
-            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            
-            ?>
-            <pre><?php
-            // var_dump($results);
-            ?>
-            </pre>
-            <?php
-            $stmt->execute();
-          
-            foreach($stmt as $row){
-                echo '<tr> <td>' .$row['ID'] . '</td>' .
-                 '<td>' . $row['naam'] . '</td>' .
-                 '<td>' . $row['rolID'] . '</td>' .
-                   '<td>' .$row['emailadres'] . '</td> </tr>';
-                // echo '<tr> <td>' . $row["naam"] . '</td> </tr>';
-                //. '<td>' .$row['emailadres'] . '</td>'
-
-            //   echo "<div class='uwrap'>" ,
-            //  "<div class='idrow'>" , $row['ID'] , "</div>" ,
-            //  "<div class='naamrow'>" , $row['naam'] , "</div>" ,
-            //  "<div class='rolrow'>" , $row['rolID'] ,"</div>" ,
-            //  "<div class='emailrow'>" , $row['emailadres'] ,"</div>" ,
-            //   "</div>";
-
-
-
-
-
-
-              // var_dump($row);
-              // echo $row['naam'] , "</br>";
-              
-              // $row['ID'] = $userid;
-              // $row['naam'] = $usernaam;
-              // $row['rolID'] = $userrol;
-              // $row['emailadres'] = $usermail;
-
-              
-            }
-           
-
-
-          }
-
-
-
 
           function addUser(){
             include 'connect.php';
@@ -175,13 +124,108 @@
                 echo "success ";
             
             }
- 
+
+            function getusers(){
+              include 'connect.php';
+              $stmt = $db->query("SELECT * FROM medewerkers");
+  
+              $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+              
+              ?>
+              <pre><?php
+              // var_dump($results);
+              ?>
+              </pre>
+              <?php
+              $stmt->execute();
+              
+              foreach($stmt as $row){
+  
+  
+                  echo '<tr> <td>' .$row['ID'] . '</td>';
+                  echo '<td>' . $row['naam'] . '</td>' ;
+                  if($row['rolID'] == 1){
+                    echo '<td>' . "Algemeen medewerker" . '</td>' ;
+                  }
+                  if($row['rolID'] == 2){
+                    echo '<td>' . "Medewerker inname" . '</td>' ;
+                  }
+                  if($row['rolID'] == 3){
+                    echo '<td>' . "Medewerker verwerking" . '</td>' ;
+                  }
+                  if($row['rolID'] == 4){
+                    echo '<td>' . "Medewerker uitgifte" . '</td>' ;
+                  }
+                  if($row['rolID'] == 5){
+                    echo '<td>' . "Applicatie beheerder" . '</td>' ;
+                  }
+                  if($row['rolID'] == 6){
+                    echo '<td>' . "Administrator" . '</td>' ;
+                  }
+                  // echo '<td>' . $row['rolID'] . '</td>' ;
+                  echo '<td>' .$row['emailadres'] . '</td> </tr>';
+        
+              }
+            
+            }
           
 
+            function getonderdelen(){
+              include 'connect.php';
+              $stmt = $db->query("SELECT * FROM onderdelen");
+  
+              $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+              
+              ?>
+              <pre><?php
+              // var_dump($results);
+              ?>
+              </pre>
+              <?php
+              $stmt->execute();
+              
+              foreach($stmt as $row){
+  
+  
+                  
+                  echo '<tr> <td>' .$row['naam'] . '</td>';
+                  echo '<td>' . $row['omschijving'] . '</td>' ;
+                  echo '<td>' . $row['voorraadkg'] . '</td>' ;
+                  echo '<td>' .$row['prijsperkg'] . '</td> </tr>';
+                 
+        
+              }
+            
+            }
 
 
-
-
+            function addonderdeel(){
+              include 'connect.php';
+                  
+                  
+                  // prepare sql and bind parameters
+                  $stmt = $db->prepare("INSERT INTO onderdelen(naam, omschijving, voorraadkg, prijsperkg)      
+                  VALUES(:naam, :omschijving, :voorraadkg, :prijsperkg)");
+  
+                 
+                  $naam = $_POST["naam"];
+                  $omschijving = $_POST["omschijving"];
+                  $voorraadkg = $_POST["voorraadkg"];
+                  $prijsperkg = $_POST["prijsperkg"];
+  
+  
+                  $stmt->bindParam(":naam" , $naam);
+                  $stmt->bindParam(":omschijving" , $omschijving);
+                  $stmt->bindParam(":voorraadkg" , $voorraadkg);
+                  $stmt->bindParam(":prijsperkg" , $prijsperkg);
+  
+  
+                  $stmt->execute();
+      
+                  header("Location: ../onderdelen.php");
+              
+              }
+  
 
 
 
