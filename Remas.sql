@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 20, 2022 at 10:18 AM
+-- Generation Time: Dec 20, 2022 at 01:22 PM
 -- Server version: 10.6.11-MariaDB-0ubuntu0.22.10.1
 -- PHP Version: 8.1.7-1ubuntu3.1
 
@@ -96,7 +96,8 @@ INSERT INTO `medewerkers` (`ID`, `rolID`, `naam`, `wachtwoord`, `emailadres`) VA
 (27, 3, 'test3', '$2y$10$OB7qn3k3QcmsAPI7X/SM5.HOI693UBnEuJEIMp06ZHx31tPxJ6Pu2', 'test'),
 (28, 4, 'test4', '$2y$10$Snc8S0R6bw1r99sdLLSAlOznhuAlVSRqxpQIK.lceQlBeN4J57beC', 'test'),
 (29, 5, 'test5', '$2y$10$pxu5s6CTWD2mpjBqQcIEd.SPdtUCxsn7QH5A3H4Ya2e.Ggn8BWRSq', 'test'),
-(30, 6, 'test6', '$2y$10$xXBwOaTccPw4vs.rfs4rG.vMntK8j6y4aOqRbOw8xs4rH.uJKgG22', 'test');
+(30, 6, 'test6', '$2y$10$xXBwOaTccPw4vs.rfs4rG.vMntK8j6y4aOqRbOw8xs4rH.uJKgG22', 'test'),
+(31, 1, 'yesitis', '$2y$10$Cz7oeaa8f7H4Rj50I1pJEuDXCP/kqjwGvorspohUNvVmJEbMcx55u', 't');
 
 -- --------------------------------------------------------
 
@@ -124,6 +125,17 @@ CREATE TABLE `onderdelen` (
   `voorraadkg` int(11) NOT NULL,
   `prijsperkg` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `onderdelen`
+--
+
+INSERT INTO `onderdelen` (`ID`, `naam`, `omschijving`, `voorraadkg`, `prijsperkg`) VALUES
+(1, 'glas', 'glas', 1, 1),
+(2, 'metaal', 'metaal en ijzer', 1, 1),
+(3, 'koper', 'koper bedrading en los koper', 5, 10),
+(4, 'plastic', 'plastic behuizingen', 1, 0.1),
+(5, 'hout', 'hout', 2, 0.5);
 
 -- --------------------------------------------------------
 
@@ -252,7 +264,7 @@ ALTER TABLE `innames`
 -- AUTO_INCREMENT for table `medewerkers`
 --
 ALTER TABLE `medewerkers`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `onderdeelapparaat`
@@ -264,7 +276,7 @@ ALTER TABLE `onderdeelapparaat`
 -- AUTO_INCREMENT for table `onderdelen`
 --
 ALTER TABLE `onderdelen`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `rollen`
