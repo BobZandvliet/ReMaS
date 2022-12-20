@@ -1,5 +1,5 @@
 <div class="leftmenu">
-<img src="/content/images/recycle.png" alt="">
+<img src="../content/images/recycle.png" alt="">
 
 
 
