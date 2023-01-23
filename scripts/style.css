@@ -16,6 +16,8 @@
 
 body{
   background-color: white;
+  overflow-x: hidden;
+  
 }
 
 @media only screen and (max-width: 750px){
@@ -27,7 +29,7 @@ body{
 
 .page{
   margin-top: 1em;
-  
+
 
 }
 

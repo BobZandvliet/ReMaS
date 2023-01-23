@@ -323,6 +323,66 @@
 
 
 
+                      function addtt(){
+                        include 'connect.php';
+                                       
+                            $stmt = $db->prepare("SELECT medewerkers.ID, 
+                            medewerkers.naam, 
+                            medewerkers.rolID, 
+                            rollen.naam FROM medewerkers 
+                            LEFT OUTER JOIN rollen 
+                            ON medewerkers.rolID = rollen.ID ORDER BY medewerkers.ID;");
+
+                            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+ 
+                            // var_dump($stmt);
+                            $stmt->execute();
+
+
+                            var_dump($results);
+
+                        }
+
+  
+                        function getondedfgn(){
+                          include 'connect.php';
+                          $stmt = $db->query("SELECT * FROM onderdelen");
+              
+                          $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                          
+                          $stmt->execute();
+                          
+                          foreach($stmt as $row){
+              
+              
+                              
+                              echo '<tr> <td>' .$row['naam'] . '</td>';
+                              echo '<td>' . $row['omschijving'] . '</td>' ;
+                              echo '<td>' . $row['voorraadkg'] . '</td>' ;
+                              echo '<td>' .$row['prijsperkg'] . '</td> </tr>';
+                             
+                    
+                          }
+                        
+                        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ?>
 
