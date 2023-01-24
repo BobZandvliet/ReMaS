@@ -13,7 +13,29 @@ include 'header.php';
 
 if($_SESSION['rolID'] == 6){
 ?>
+    <div class="page">
 
+
+<div  id="page">
+<table>
+    <thread>
+  
+    <tr>
+    <th>Medewerkers ID</th>
+    <th>Medewerkers naam</th>
+    <th>Rol ID</th>
+    <th>Rol</th>
+    <th>email</th>
+    </tr>
+    </thread>
+<?php
+
+    showmedewerkers();
+
+
+?>
+</table>
+</div>
   <form class="logform" action="includes/insert.php" method="POST">
 
                 <select name="rolID" class="rolselect">
@@ -36,7 +58,15 @@ if($_SESSION['rolID'] == 6){
           </form>
          <?php
         }?> 
-      
+       <form class="logform" action="includes/deleteuser.php" method="post">
+
+        <h1>Medewerker verwijderen</h1>
+        <input type="text" name="ID" placeholder="Medewerkers ID" required><br>
+
+
+        <input id="but" type="submit" name="delete" value="DELETE">
+
+        </form>
     </div>
 </div>
 

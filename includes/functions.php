@@ -323,48 +323,38 @@
 
 
 
-                      function addtt(){
+                      function showmedewerkers(){
                         include 'connect.php';
                                        
-                            $stmt = $db->prepare("SELECT medewerkers.ID, 
-                            medewerkers.naam, 
-                            medewerkers.rolID, 
-                            rollen.naam FROM medewerkers 
+                            $stmt = $db->prepare("SELECT medewerkers.ID, medewerkers.naam AS medewerkersNaam, medewerkers.rolID, medewerkers.emailadres, 
+                            rollen.naam AS rolNaam FROM medewerkers 
                             LEFT OUTER JOIN rollen 
-                            ON medewerkers.rolID = rollen.ID ORDER BY medewerkers.ID;");
-
-                            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
- 
+                            ON medewerkers.rolID = rollen.ID;");
+                            
                             // var_dump($stmt);
                             $stmt->execute();
+                            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-
-                            var_dump($results);
-
-                        }
-
-  
-                        function getondedfgn(){
-                          include 'connect.php';
-                          $stmt = $db->query("SELECT * FROM onderdelen");
-              
-                          $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                          
-                          $stmt->execute();
-                          
-                          foreach($stmt as $row){
+                            // echo'<pre>';
+                            // var_dump($results);
+                            // echo'</pre>';
+                            foreach($results as $row){
               
               
                               
-                              echo '<tr> <td>' .$row['naam'] . '</td>';
-                              echo '<td>' . $row['omschijving'] . '</td>' ;
-                              echo '<td>' . $row['voorraadkg'] . '</td>' ;
-                              echo '<td>' .$row['prijsperkg'] . '</td> </tr>';
+                              echo '<tr> <td>' .$row['ID'] . '</td>';
+                              echo '<td>' . $row['medewerkersNaam'] . '</td>' ;
+                              echo '<td>' . $row['rolID'] . '</td>' ;
+                              echo '<td>' .$row['rolNaam'] . '</td> ';
+                              echo '<td>' .$row['emailadres'] . '</td> </tr>';
                              
                     
                           }
-                        
+
+
                         }
+
+
 
 
 

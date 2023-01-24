@@ -70,8 +70,6 @@ include 'header.php';
 
 
 
-  addtt();
-
 
 
 ?>

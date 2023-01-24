@@ -42,6 +42,7 @@
         <a href='onderhoud.php'>Onderhoud</a>
         <div class="sub" ><a href="apparaten.php">Apparaten</a></div>
         <div class="sub" ><a href="onderdelen.php">Onderdelen</a></div>
+
         <?php  
         }
         ?>
