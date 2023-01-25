@@ -24,7 +24,7 @@
             try  
             {  
                 $connect = $db;  
-                $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+                $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); //moet naar db function / connect.php
                    
 
                       if(isset($_POST["naam"]) && isset($_POST["wachtwoord"])){  
@@ -127,7 +127,7 @@
               $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
               
 
-              $stmt->execute();
+              $stmt->execute();//nietnodig
               
               foreach($stmt as $row){
   
