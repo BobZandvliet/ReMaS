@@ -4,7 +4,7 @@ try {
 $servername = "localhost";
 $dbname = "Remas";
 $username = "root";
-$password = "123Dpower!";
+$password = "root";
 //login to database
   $db = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8" ,$username,$password);
   //vardump to see if the connection works
