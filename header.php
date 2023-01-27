@@ -1,4 +1,5 @@
  <?php
+ //de header staat in een apparte file zodat ik deze maar 1 keer hoef aan te maken en dan includen op elke pagina
 include 'includes/functions.php';
 session_start();
 

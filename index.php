@@ -50,7 +50,7 @@ include 'header.php';
       ?>
 
       <?php  
-        //login_success.php   
+         
         if(isset($_SESSION["naam"]))  
         
         {  

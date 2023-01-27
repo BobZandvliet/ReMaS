@@ -2,13 +2,14 @@
 include 'header.php';
 ?>
     <script type='text/javascript' >
+      //deze funties moeten naar js.js voor mooiheid, staat nu hier voor test redenen
         function remove(){
                 while (extraveld.hasChildNodes()) {
                 extraveld.removeChild(extraveld.lastChild);
                 
             }
         }
-
+        
         function voegVeldenToe(){
             // Generate a dynamic number of inputs
             let nummer = document.getElementById("veld").value;

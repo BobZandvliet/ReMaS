@@ -1,6 +1,8 @@
 <?php
+// dit is mijn functions file waarin alle functies die de website gebruikt vandaan komen
+//voor mijn connectie heb ik PDO gebruikt die prepare statements gebruikt voor veiligheid
 
-        
+        //een functie om te kijken of een username al bestaad in de db
         function lookupUser($userData){
             include 'connect.php';
           
@@ -16,7 +18,8 @@
           
           }
 
-   
+          //een login functie die gebruikt maak van password verify om de hashed password te checken met de non hashed password die ingevult wordt
+          //in deze funtie wordt ook informatie toegevoegd in de session, deze session wordt daarna gebruikt om bepaalde informatie te laten zien
         function doLogin(){
             include 'connect.php';
 
@@ -34,7 +37,7 @@
                             $query = "SELECT * FROM medewerkers WHERE naam = :naam";  
                             $statement = $connect->prepare($query);  
 
-                            
+                            //html special chars voor sql injection tegen te gaan
                             $statement->execute(['naam' => htmlspecialchars($_POST["naam"], ENT_QUOTES, 'UTF-8')]);
                            
                             $count = $statement->rowCount();  
@@ -69,7 +72,7 @@
           }
 
 
-
+            //krijgt alle rollen die in de db staan
           function getroles(){
             include 'connect.php';
             $stmt = $db->query("SELECT * FROM rollen");
@@ -77,7 +80,6 @@
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
             
 
-            $stmt->execute();
             
             foreach($stmt as $row){
         
@@ -86,7 +88,7 @@
           }
 
 
-
+          //funcite om een user aan te maken en het ingevulde wachtwoord te hashen
           function addUser(){
             include 'connect.php';
                 
@@ -120,14 +122,13 @@
             
             }
 
+            //een functie om alle users op te halen uit de db en gelijk html toegevoegd voor styling
             function getusers(){
               include 'connect.php';
               $stmt = $db->query("SELECT * FROM medewerkers");
   
               $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
               
-
-              $stmt->execute();//nietnodig
               
               foreach($stmt as $row){
   
@@ -159,14 +160,12 @@
             
             }
           
-
+            //krijgt alle onderdelen die in de db staan en voegd html toe voor styling
             function getonderdelen(){
               include 'connect.php';
               $stmt = $db->query("SELECT * FROM onderdelen");
   
               $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-              
-              $stmt->execute();
               
               foreach($stmt as $row){
   
@@ -182,7 +181,7 @@
             
             }
 
-
+            //een functie om onderdelen toe te voegen aan de db
             function addonderdeel(){
               include 'connect.php';
                   
@@ -206,18 +205,16 @@
   
                   $stmt->execute();
       
-                  header("Location: ../onderdelen.php");
+                  header("Location: ../onderdelen.php");//stuurt je terug naar de pagina /onderdelen.php
               
               }
-  
+              //zelfde als getonderdelen maar dan voor alla apparaten in de db
               function getapparaten(){
                 include 'connect.php';
                 $stmt = $db->query("SELECT * FROM apparaten");
     
                 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
- 
-                $stmt->execute();
-                
+
                 foreach($stmt as $row){
     
     
@@ -236,8 +233,7 @@
                 $stmt = $db->query("SELECT * FROM apparaten");
     
                 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
- 
-                $stmt->execute();
+
                 
                 foreach($stmt as $row){
     
@@ -277,7 +273,7 @@
                 
                 }
 
-
+                //functie om een user te verwijderen
                 function deleteuser(){
                   include 'connect.php';
                       
@@ -322,7 +318,7 @@
                       }
 
 
-
+                      // een functie die gebruikt maakt van de left outer join om met een relationele database informatie uit meerdere tabbelen te halen en samen te voegen
                       function showmedewerkers(){
                         include 'connect.php';
                                        

@@ -1,4 +1,5 @@
 <?php
+//dit is mijn connect naar de database
 try {
 $servername = "localhost";
 $dbname = "Remas";

@@ -1,4 +1,4 @@
-
+        // een functie om de pagina te kunnen printen doormiddel van een print knop
        function printpage() {
             let div = document.getElementById("page").innerHTML;
             let page = window.open('', '', 'height=auto;, width=auto;');
@@ -16,20 +16,20 @@
             
         }
     }
-
+    // dit is een functie om dynamisch velden toe te voegen, dit werkte niet helemaal zoals ik wou en wil dit anders doen
     function voegVeldenToe(){
-        // Generate a dynamic number of inputs
+      
         let nummer = document.getElementById("veld").value;
-        // Get the element where the inputs will be added to
+     
         let extraveld = document.getElementById("extraveld");
      
-        // Remove every children it had before
+        
         while (extraveld.hasChildNodes()) {
             extraveld.removeChild(extraveld.lastChild);
             
         }
         for (i=0;i<nummer;i++){
-            // Create an <input> element, set its type and name attributes
+            
             let apparaat = document.createElement("input");
             apparaat.type = "text";
             apparaat.name = "apparaat" + i;
@@ -45,7 +45,7 @@
             extraveld.appendChild(apparaat2);
             
 
-            // Append a line break 
+            
             extraveld.appendChild(document.createElement("br"));
         }
     }    

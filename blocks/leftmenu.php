@@ -5,7 +5,10 @@
 
     <div class="menulinks">
       <?php 
-      
+      //ik heb het linker menu in een apparte file gezet omdat elke pagina de linker menu heeft, deze include ik dan in elke pagina
+      //hier door hoef ik de file maar 1 keer te maken
+      // het menu laat menu items zien gebasseerd op de user rol die een account heeft.
+      //de user rol wordt opgeslagen in de session
       
       if(isset($_SESSION['naam'])){?>
         <?php 
